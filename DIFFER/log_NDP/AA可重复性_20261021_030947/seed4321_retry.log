@@ -1,0 +1,6 @@
+usage: ndp_aa_reproducibility.py [-h] --mode {parent,child}
+                                 [--run-time RUN_TIME] [--seed {1234,4321}]
+                                 [--label {aa0,aa1}]
+                                 [--materialized MATERIALIZED] --output OUTPUT
+                                 [--steps STEPS]
+ndp_aa_reproducibility.py: error: argument --label: invalid choice: 'aa0_retry' (choose from 'aa0', 'aa1')

@@ -1,0 +1,6 @@
+运行时间：20261021_100801
+本轮范围：VLADR关系实现核对、独立NDP原型单测、LTCC train-only静态诊断。
+明确禁止：修改GPC-v1、正式processor、PRCC、NDP历史结果、官方query/gallery训练选择。
+独立张量单测：PASS，returncode=0。
+seed1234 train-only静态诊断：PASS；有效局部anchor=1024/1024；参考可靠率=0.9990。
+seed4321 train-only静态诊断：PASS；有效局部anchor=1024/1024；参考可靠率=0.9971。

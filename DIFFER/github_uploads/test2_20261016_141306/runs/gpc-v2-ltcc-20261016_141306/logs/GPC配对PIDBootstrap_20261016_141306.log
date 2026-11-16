@@ -1,0 +1,10 @@
+RUN_TIME=20261016_141306
+中文说明：读取固定扩展协议和刚完成的 PPU 评估 JSON；以 PID 为重采样单位，不重新提取特征。
+{
+  "status": "PASS",
+  "output": "/home/DIFFER/outputs/gpc_v2_paired_pid_bootstrap_20261016_141306",
+  "report": "/home/DIFFER/reports/GPC_V2_PAIRED_PID_BOOTSTRAP.md",
+  "query_count": 693,
+  "effective_pid_count": 11
+}
+中文说明：PID 配对 Bootstrap 退出码=0；输出=/home/DIFFER/outputs/gpc_v2_paired_pid_bootstrap_20261016_141306；报告=/home/DIFFER/reports/GPC_V2_PAIRED_PID_BOOTSTRAP.md；日志=/home/DIFFER/logs/GPC配对PIDBootstrap_20261016_141306.log

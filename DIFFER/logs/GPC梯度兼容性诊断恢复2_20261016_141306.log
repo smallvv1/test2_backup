@@ -1,0 +1,12 @@
+RUN_TIME=20261016_141306
+中文说明：诊断恢复2，使用 development_split_manifest 的连续 PID label，并验证冻结 split SHA256；PPU 与梯度协议不变。
+中文说明：梯度诊断使用 PPU device=0；设备=['PPU-ZW810E', 'PPU-ZW810E']；CPU model fallback=False
+Traceback (most recent call last):
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 425, in <module>
+    main()
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 362, in main
+    split, _rows = load_split()
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 144, in load_split
+    manifest_path = RUN_ROOT / "development_split_manifest.json"
+NameError: name 'RUN_ROOT' is not defined
+中文说明：梯度诊断恢复2退出码=1；输出=/home/DIFFER/outputs/gpc_gradient_compatibility_20261016_141306_recovery2；报告=/home/DIFFER/reports/GPC_GRADIENT_COMPATIBILITY_AUDIT.md；日志=/home/DIFFER/logs/GPC梯度兼容性诊断恢复2_20261016_141306.log

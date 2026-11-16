@@ -1,0 +1,15 @@
+/usr/local/lib/python3.10/site-packages/torch/functional.py:539: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /job_3220505/source/pytorch/aten/src/ATen/native/TensorShape.cpp:3637.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+{
+  "stage": "F0_build",
+  "model_class": "model.eva_meta_bio.Eva",
+  "model_training_initial": true,
+  "blocks": 23,
+  "parameters": 303933965,
+  "bottleneck_config": false,
+  "factory_name": "eva02_l_bio",
+  "config_sha256": "1047516fb8efd81d5328c52d99065951620ea6a42a9a27aa228eeafde61ee944",
+  "checkpoint_sha256": "72892762c37044b85dc9ed9999c833da574026c3715e760885363201a8a40ed0",
+  "cpu_model_fallback": false,
+  "note": "F0 只构建模型；未在 CPU 执行模型 forward/backward。"
+}

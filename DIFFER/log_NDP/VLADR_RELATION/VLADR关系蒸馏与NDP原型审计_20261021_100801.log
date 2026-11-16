@@ -1,0 +1,18 @@
+运行时间：20261021_100801；PPU探针时间：20261021_101004。
+本轮目标：核对VLADR关系蒸馏实现，审计DIFFER+GPC实际代码，完成独立NDP原型、单元测试、train-only静态诊断和无更新PPU梯度探针。
+
+保护范围：未修改GPC-v1、Phase7I历史文件、CE、Triplet、Bio、EVA02、PRCC、NDP历史结果或官方评估协议；未执行optimizer.step；未使用官方query/gallery。
+
+论文/官方实现核对：PASS。官方代码使用局部区域特征的余弦关系矩阵、逐行softmax、温度0.005、含对角线、KL(new||old)，old target detach。
+实际DIFFER代码核对：PASS。训练使用归一化feat[0]身份特征、原始CE+Batch-Hard Triplet+Bio和GPC matched-budget 1-cos，NDP未接入正式processor。
+独立NDP模块单元测试：PASS。结果标记：NDP_VLADR_RELATION_UNIT_TEST_PASS。
+LTCC train-only静态诊断：PASS。seed1234有效局部anchor 1024/1024、参考可靠率99.90%；seed4321 1024/1024、参考可靠率99.71%。这些是Bio E60与GPC E60独立终点横向诊断，不是单次更新激活证据。
+
+PPU第一次尝试：FAIL/环境初始化阻塞。原因是没有加载/usr/local/PPU_SDK/envsetup.sh ppu，runtime报告PPU_HOME和PPU_SDK缺失；未进入模型，不归因于NDP。
+PPU第二次尝试：PASS（无更新探针）。加载历史成功环境后，两个PPU-ZW810E识别通过，EVA02真实模型forward/backward及参数梯度finite；optimizer.step未执行。
+固定train-only batch：rank0 iteration20，anchor PID=6，2个跨衣正样本，4个异PID负样本，关系SHA256=45335aca3774dea22958c322b60148c559026f8532d0a72fc05eee40496460cf。
+C0 Batch-Hard Triplet：非零梯度；C4 SupCon/N-pair：非零梯度；C1自适应margin、C2缓存NDP、C3实时NDP：当前状态等于参考且epsilon>0，按定义零梯度，不是实现失败。
+
+科学门禁：真实训练轨迹自然NDP激活=未验证；PPU AMP A/A可比性=未完全解决；小规模optimizer-step配对=未执行；正式30/60 epoch=禁止启动。
+最终本轮状态：INCONCLUSIVE。
+详细JSON、源码快照和哈希见同目录及 /home/DIFFER/log_NDP/VLADR_RELATION_20261021_100801/。

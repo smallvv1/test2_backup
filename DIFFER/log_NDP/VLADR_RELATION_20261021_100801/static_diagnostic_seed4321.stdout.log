@@ -1,0 +1,1 @@
+{"seed": 4321, "valid_local_anchor_count": 1024, "global_relation_kl": {"sample_count": 512, "temperature": 0.005, "official_including_diagonal": 2.0910376861138502e-06, "official_active_rows": 512, "ndp_excluding_diagonal": 1.3807475566864014, "ndp_active_rows": 512}}

@@ -1,0 +1,17 @@
+RUN_TIME=20261016_141306
+中文说明：固定协议=/home/DIFFER/outputs/gpc_v2_protocol_audit_20261016_141306/expanded_dev_protocol.json
+中文说明：开始 PPU-only 复核，禁止 CPU 模型回退；不读取官方 query/gallery。
+中文说明：评估模型使用 PPU；设备数量=2；设备名称=['PPU-ZW810E', 'PPU-ZW810E']；CPU model fallback=False
+中文说明：开始 PPU checkpoint 评估 arm=screen_B0_seed1234 checkpoint=/home/DIFFER/outputs/gpc_v2_ltcc_20261015_155822/training/screen/B0_seed1234/model_final.pth
+/usr/local/lib/python3.10/site-packages/torch/functional.py:539: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /job_3220505/source/pytorch/aten/src/ATen/native/TensorShape.cpp:3637.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[2026-10-16 14:13:35:476735][ALINPU INFO]: [/job_3220189/source/acompute/include/accontext.hpp:174][34m ACOMPUTE: [device caps] dev=0, name=PPU-ZW810E, sm8.0, smem=256KB, num_of_sm=64, freq_of_sm=1700MHz[0m
+[2026-10-16 14:13:35:803708][ALINPU INFO]: [/job_3220189/source/acompute/include/accontext.hpp:174][34m ACOMPUTE: [device caps] dev=0, name=PPU-ZW810E, sm8.0, smem=256KB, num_of_sm=64, freq_of_sm=1700MHz[0m
+[33m[2026-10-16 14:13:36:193054][ALINPU WARNING]: [offline_cache.hpp:574]The set dir is not accessable: /PPU0010[0m
+[2026-10-16 14:13:36:193392][ALINPU INFO]: [offline_cache.hpp:583]Use root dir: /rtccache/PPU0010
+[33m[2026-10-16 14:13:36:193421][ALINPU WARNING]: [offline_cache.hpp:574]The set dir is not accessable: /PPU0015[0m
+[2026-10-16 14:13:36:193461][ALINPU INFO]: [offline_cache.hpp:583]Use root dir: /rtccache/PPU0015
+[2026-10-16 14:13:36:193508][ALINPU INFO]: [kernel_factory.cu:258]Rtc cache load all offline-cache done.
+
+[33m[2026-10-16 14:13:36:198048][ALINPU WARNING]: [offline_cache.hpp:74]No cache file exist: /rtccache/PPU0010/ppu-64_2362312834_gemm_ktype0_aiu1_mtype1_dtypeFP32xFP32xFP32xFP32xFP32_tile256x128x64x64x32x2_layout0x1x0x0_align1x1x4x4_splitk0_fusion5_prefetch0_fp32tc1_ptrhost1_schedule0.bin[0m
+中文说明：扩展评估退出码=134；输出=/home/DIFFER/outputs/gpc_v2_expanded_validation_20261016_141306；日志=/home/DIFFER/logs/GPC扩展开发验证_20261016_141306.log

@@ -1,0 +1,16 @@
+RUN_TIME=20261016_141306
+中文说明：诊断恢复1，仅修复 BIO_INDEX=[0] 的 loader 类型适配；PPU、checkpoint、batch、梯度计算协议不变。
+中文说明：梯度诊断使用 PPU device=0；设备=['PPU-ZW810E', 'PPU-ZW810E']；CPU model fallback=False
+/usr/local/lib/python3.10/site-packages/torch/functional.py:539: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /job_3220505/source/pytorch/aten/src/ATen/native/TensorShape.cpp:3637.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 415, in <module>
+    main()
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 365, in main
+    run_one_model(arm, seed, phase, actual_checkpoint, actual_config, epoch, device, split, rows)
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 279, in run_one_model
+    state = active_state(dataset, train_pids)
+  File "/home/DIFFER/scripts/gpc_gradient_compatibility_audit.py", line 152, in active_state
+    raise RuntimeError("梯度诊断 active_state 未覆盖冻结开发训练 PID")
+RuntimeError: 梯度诊断 active_state 未覆盖冻结开发训练 PID
+中文说明：梯度诊断恢复1退出码=1；输出=/home/DIFFER/outputs/gpc_gradient_compatibility_20261016_141306_recovery1；报告=/home/DIFFER/reports/GPC_GRADIENT_COMPATIBILITY_AUDIT.md；日志=/home/DIFFER/logs/GPC梯度兼容性诊断恢复_20261016_141306.log

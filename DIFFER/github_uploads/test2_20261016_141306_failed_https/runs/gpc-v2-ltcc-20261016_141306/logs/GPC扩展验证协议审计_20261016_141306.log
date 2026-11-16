@@ -1,0 +1,33 @@
+RUN_TIME=20261016_141306
+中文说明：使用 20261015_155822 冻结划分，仅读取开发训练清单与原始 LTCC train split；不读取官方 query/gallery。
+{
+  "status": "PASS",
+  "output": "/home/DIFFER/outputs/gpc_v2_protocol_audit_20261016_141306",
+  "old": {
+    "frozen_query_count": 17,
+    "old_legal_query_count": 11,
+    "old_invalid_query_count": 6,
+    "old_gallery_count": 1256,
+    "invalid_old_query_raw_pids": [
+      18,
+      44,
+      69,
+      85,
+      94,
+      100
+    ],
+    "old_query_rule": "从原始 LTCC train split 固定抽取 17 个至少含两种服装的 PID 做开发验证，其余 PID 做开发训练；验证 query 为每个 PID 最小服装编号的第一张图，gallery 为其它服装的全部图。",
+    "historical_evaluation_observed": {
+      "query_count": 11,
+      "gallery_count": 1256
+    }
+  },
+  "expanded": {
+    "query_count_before_legal_filter": 711,
+    "query_count": 693,
+    "gallery_count": 1256,
+    "effective_pid_count": 11,
+    "dropped_no_legal_positive_count": 18
+  }
+}
+中文说明：协议审计退出码=0；报告目录=/home/DIFFER/outputs/gpc_v2_protocol_audit_20261016_141306；日志=/home/DIFFER/logs/GPC扩展验证协议审计_20261016_141306.log

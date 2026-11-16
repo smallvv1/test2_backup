@@ -1,0 +1,63 @@
+/usr/local/lib/python3.10/site-packages/torch/functional.py:539: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /job_3220505/source/pytorch/aten/src/ATen/native/TensorShape.cpp:3637.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+{
+  "stage": "F2_input_to_ppu",
+  "device_names": [
+    "PPU-ZW810E",
+    "PPU-ZW810E"
+  ],
+  "batch_plan_sha256": "d88ecdcc089475d5cf5e5e9bf57594547f09c4e7335e6b5bfaf21efc2fe73f4e",
+  "batch_size": 8,
+  "images": {
+    "shape": [
+      8,
+      3,
+      224,
+      224
+    ],
+    "dtype": "torch.float32",
+    "device": "cuda:0",
+    "finite": true,
+    "requires_grad": false
+  },
+  "pid": {
+    "shape": [
+      8
+    ],
+    "dtype": "torch.int64",
+    "device": "cuda:0",
+    "finite": true,
+    "requires_grad": false
+  },
+  "camera": {
+    "shape": [
+      8
+    ],
+    "dtype": "torch.int64",
+    "device": "cuda:0",
+    "finite": true,
+    "requires_grad": false
+  },
+  "clothing": {
+    "shape": [
+      8
+    ],
+    "dtype": "torch.int64",
+    "device": "cuda:0",
+    "finite": true,
+    "requires_grad": false
+  },
+  "caption": {
+    "shape": [
+      8,
+      3,
+      512
+    ],
+    "dtype": "torch.float16",
+    "device": "cuda:0",
+    "finite": true,
+    "requires_grad": false
+  },
+  "cuda_synchronized": true,
+  "cpu_model_fallback": false
+}

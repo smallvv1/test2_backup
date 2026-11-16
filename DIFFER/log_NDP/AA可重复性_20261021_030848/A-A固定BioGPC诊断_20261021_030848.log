@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/DIFFER/scripts/ndp_aa_reproducibility.py", line 581, in <module>
+    main()
+  File "/home/DIFFER/scripts/ndp_aa_reproducibility.py", line 575, in main
+    raise SystemExit(parent(args))
+  File "/home/DIFFER/scripts/ndp_aa_reproducibility.py", line 532, in parent
+    summaries = [prepare(seed, args.output, args.steps) for seed in (1234, 4321)]
+  File "/home/DIFFER/scripts/ndp_aa_reproducibility.py", line 532, in <listcomp>
+    summaries = [prepare(seed, args.output, args.steps) for seed in (1234, 4321)]
+  File "/home/DIFFER/scripts/ndp_aa_reproducibility.py", line 197, in prepare
+    loader, loader_meta = v2.base.make_epoch_loader(dataset, transform_train, active_state, index_map, EPOCH, RANK)
+  File "/data/DIFFER/scripts/gpc_v2_train.py", line 218, in loader_v2
+    meta["covered_pids"] = [remap[int(pid)] for pid in meta["covered_pids"]]
+  File "/data/DIFFER/scripts/gpc_v2_train.py", line 218, in <listcomp>
+    meta["covered_pids"] = [remap[int(pid)] for pid in meta["covered_pids"]]
+KeyError: 9

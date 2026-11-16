@@ -1,0 +1,13 @@
+中文门禁：源码、pair-budget、冻结划分、双 PPU 基础预检和 AMP 恢复预检通过。
+中文说明：开始 screen arm=B0 seed=1234 epochs=30。
+Setup environment for PPU
+/usr/local/PPU_SDK/envsetup.sh: line 25: LD_LIBRARY_PATH: unbound variable
+中文说明：正在创建独立 GitHub checkout。
+Cloning into '/home/DIFFER/github_uploads/test2_20261016_144057'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+中文解释：GitHub checkout 创建失败，通常是 SSH/HTTPS 凭据或网络权限问题；科研结果保留在本地。
+中文解释：GitHub 上传未成功；本地归档保留。

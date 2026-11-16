@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/DIFFER/scripts/ndp_real_activation_gradient_probe.py", line 341, in <module>
+    main()
+  File "/home/DIFFER/scripts/ndp_real_activation_gradient_probe.py", line 337, in main
+    run(args)
+  File "/home/DIFFER/scripts/ndp_real_activation_gradient_probe.py", line 220, in run
+    cfg, dataset = load_cfg_and_dataset(split, args.seed, run_dir)
+  File "/home/DIFFER/scripts/ndp_real_activation_gradient_probe.py", line 80, in load_cfg_and_dataset
+    class Args:
+  File "/home/DIFFER/scripts/ndp_real_activation_gradient_probe.py", line 87, in Args
+    seed = seed
+NameError: name 'seed' is not defined

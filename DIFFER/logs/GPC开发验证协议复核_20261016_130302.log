@@ -1,0 +1,23 @@
+时间：2026-10-16 UTC
+RUN_TIME：20261016_130302
+关联历史运行：20261015_155822
+
+阶段：GPC-v2 LTCC 开发验证协议审计与既有 checkpoint 扩展复核。
+
+协议审计结果：PASS（探索性协议）。原冻结验证 PID 为 17 个，历史评估有效 Query 为 11 个；6 个 raw PID 只有 clothing=1，经过 LTCC CC 跨衣合法性过滤后被跳过。扩展协议先生成 711 个 Query，因摄像头过滤剔除 18 个无合法正样本 Query，最终为 693 Query、1256 Gallery、11 个有效 PID。
+
+泄漏检查：训练 PID 与验证 PID 不重叠；训练、Query、Gallery 路径互不重叠；无同图匹配；未使用官方 query/gallery；开发验证特征未进入训练损失或 memory bank。
+
+PPU 评估：10 个既有 checkpoint 全部完成 PPU-ZW810E 前向；未发生 CPU model fallback；未重新训练。
+
+扩展评估摘要：E30 B0/A1/A2/A3/A4/A5 Rank-1 分别为 55.123/51.948/56.133/52.525/61.616/57.720%，mAP 分别为 45.020/44.702/47.084/43.305/47.630/47.677%。E60 A5 相对同 seed B0：seed1234 Rank-1 +0.722 pp、mAP +0.347 pp；seed4321 Rank-1 +1.876 pp、mAP +1.441 pp。
+
+历史 11-query 负结果：保留原文件，未修改。A5 按原预注册协议仍不晋级；本次 693-query 结果仅为探索性复核，不能与历史结果混算。
+
+实现审计：源码已在 /data/DIFFER/scripts/ 恢复并登记哈希：gpc_v2_train.py=d6d149ebbe8819552689d6ce5f1e053f5adea205a45f4ace3fce81296a1991c5，gpc_v2_dev_eval.py=826137d5adb88b8051b51fcd7064b53dd10cf34b3c4829910de1a5bc4fe52d1a，gpc_v2_select_candidates.py=af53b23d697c95ccf14c24467fbeb093a3c6f23aa4980966620a83fa9a54d77d。训练源码显示 A4 只在单 batch 内 round-robin，不能保证跨 epoch PID 均衡；当前 dev evaluator 还将 camera 固定为0且没有 LTCC CC 同衣/同摄像头过滤。A4 的 PID contribution 长尾反而恶化（B0 最大/最小 59.7，A4 为 795.0）；A5 截断比例和后期梯度日志缺失；历史运行没有记录源码哈希，不能证明当前副本就是历史执行字节。
+
+AMP 记录：历史训练各 arm 存在 skipped/nonfinite 事件，30 epoch 为 16--18 次，60 epoch 为 28--32 次；本次离线 PPU 前向无 NaN/Inf。
+
+GitHub：创建本地分支 audit/gpc-v2-dev-protocol-20261016，commit 4b690da。分支只含审计 harness 和源码恢复说明，无数据、特征、checkpoint、密钥。HTTPS 和 SSH 推送均因当前环境缺少 GitHub 凭据失败，未伪造或绕过权限。
+
+最终阶段状态：GPC-v2 MIXED；不启动新的训练，不执行官方 LTCC 最终确认，保留 GPC-v1。
